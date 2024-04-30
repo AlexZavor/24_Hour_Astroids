@@ -1,0 +1,17 @@
+# Cmake Files
+CMakeFiles
+CMakeScripts
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+ALL_BUILD*
+ZERO_CHECK*
+
+# VS Code
+.vscode/
+*.exe
+.cmake/
+compile_commands.json
+
+#Testing
+*.log
