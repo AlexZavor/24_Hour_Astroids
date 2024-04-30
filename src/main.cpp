@@ -64,11 +64,12 @@ int main(int argc, char* argv[]) {
 	SDL_Event e;
 
 	bool quit = false;
+	
+	vect2d center = vect2d(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+	Ship player = Ship(center);
 
 	if(initializeSDL(&window, &renderer, &texture)){
 		while(!quit){
-
-			// Uint64 start = SDL_GetPerformanceCounter();
 
 			//Handle events on queue
 			while( SDL_PollEvent( &e ) != 0 ) {
@@ -80,12 +81,29 @@ int main(int argc, char* argv[]) {
 				else if( e.type == SDL_KEYDOWN ) {
 					switch( e.key.keysym.sym ) {
 						case SDLK_UP:
+							player.setDriving(true);
+						break;
+						case SDLK_RIGHT:
+							player.setRotation(SHIP_ROTATION);
+						break;
+						case SDLK_LEFT:
+							player.setRotation(-SHIP_ROTATION);
+						break;
+						case SDLK_ESCAPE:
+							player.setLocation(center);
 						break;
 					}
 				}
 				else if( e.type == SDL_KEYUP ) {
 					switch( e.key.keysym.sym ) {
 						case SDLK_UP:
+							player.setDriving(false);
+						break;
+						case SDLK_RIGHT:
+							player.setRotation(0);
+						break;
+						case SDLK_LEFT:
+							player.setRotation(0);
 						break;
 					}
 				}
@@ -99,22 +117,15 @@ int main(int argc, char* argv[]) {
 			int mouseY;
 
 			SDL_GetMouseState(&mouseX, &mouseY);
-			ship
-			// vect2d mouse = vect2d(mouseX-SCREEN_WIDTH/2, mouseY-SCREEN_HEIGHT/2);
-
-			printf("loc: %f,%f ang: %f mag: %f \n", mouse.x, mouse.y, mouse.getAngle(), mouse.getMag());
+			vect2d mouse = vect2d(mouseX, mouseY);
 			
-
+			
 
 			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-			SDL_RenderDrawLine(renderer, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, mouseX, mouseY);
+			player.updateShip();
+			player.drawShip(renderer);
 
 			SDL_RenderPresent( renderer );
-
-			
-			// Uint64 end = SDL_GetPerformanceCounter();
-			// float elapsedMS = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
-			// printf("%f ms\n", elapsedMS);
 		}
 	}
 
