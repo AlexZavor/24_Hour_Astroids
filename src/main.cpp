@@ -69,7 +69,7 @@ void drawUI(int lives, int score, SDL_Renderer* renderer){
 	}
 
 	SDL_SetRenderDrawColor(renderer, SCORE_COLOR);
-	static TTF_Font* minecraft = TTF_OpenFont("../fonts/Minecraft.ttf", 16);
+	static TTF_Font* minecraft = TTF_OpenFont(FONT_LOCATION, 16);
 
 	std::string scoreStr = std::to_string(score);
 	SDL_Color scoreColor = {SCORE_COLOR};
@@ -239,7 +239,7 @@ void illmenyou(SDL_Event e, SDL_Renderer* renderer){
 	SDL_SetRenderDrawColor(renderer, BACKGROUND_COLOR);
 	SDL_RenderClear(renderer);
 
-	static TTF_Font* minecraft = TTF_OpenFont("../fonts/Minecraft.ttf", 16);
+	static TTF_Font* minecraft = TTF_OpenFont(FONT_LOCATION, 16);
 	SDL_Color scoreColor = {STANDARD_COLOR};
 
 	std::string scoreStr = "Astroids";

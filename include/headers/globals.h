@@ -5,6 +5,8 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
+#define FONT_LOCATION "fonts/Minecraft.ttf"
+
 #define BACKGROUND_COLOR 0, 0, 0, 255
 #define STANDARD_COLOR   255, 255, 255, 255
 #define SHOT_COLOR       255, 255, 0, 255

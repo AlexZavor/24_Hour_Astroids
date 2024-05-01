@@ -13,5 +13,9 @@ ZERO_CHECK*
 .cmake/
 compile_commands.json
 
-#Testing
+# Testing
 *.log
+
+# Release
+24hourAstroids/
+24hourAstroids.zip

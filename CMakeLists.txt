@@ -10,7 +10,7 @@ include_directories(include)
 include_directories(include/headers)
 include_directories(include/SDL2)
 
-set(DEBUG true)
+set(DEBUG false)
 
 ############### Main Build ###############
 
