@@ -2,6 +2,7 @@
 #define VECT2D_H
 
 #include <math.h>
+#include <random>
 
 #define ZERO_VECT (vect2d(0,0))
 #define NORMAL_VECT (vect2d(1,0))
@@ -14,9 +15,11 @@ public:
     float getAngle();
     vect2d operator+(vect2d const& obj);
     vect2d operator*(float const& obj);
+    vect2d operator%(vect2d const& obj);
+    vect2d operator-(vect2d const& obj);
     void normalize();
     float getMag();
-    void rotate(float angle);
+    vect2d rotate(float angle);
 
     vect2d(float x, float y);
     vect2d(){}
